@@ -41,10 +41,23 @@ public class MainActivity extends AppCompatActivity {
 //                count = count >= mArrayImageInteger.size() -1 ? 0 : ++count;
                 if (count >= mArrayImageInteger.size() -1){
                     count = 0;
+                    mImg.setImageResource(mArrayImageInteger.get(count));
+                    return;
                 }
-                mImg.setImageResource(mArrayImageInteger.get(count));
+                mImg.setImageResource(mArrayImageInteger.get(++count));
             }
 
+        });
+        mBtnPrevious.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (count <= 0){
+                    count = mArrayImageInteger.size() -1;
+                    mImg.setImageResource(mArrayImageInteger.get(count));
+                    return;
+                }
+                mImg.setImageResource(mArrayImageInteger.get(--count));
+            }
         });
     }
 }
